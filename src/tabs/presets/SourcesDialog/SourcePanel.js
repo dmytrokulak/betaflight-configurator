@@ -145,6 +145,7 @@ export default class SourcePanel {
     _checkIfGithub() {
         const isGithubUrl = PresetSource.isUrlGithubRepo(this._domEditUrl.val());
         this._domDivGithubBranch.toggle(isGithubUrl);
+        this._domDivGithubToken.toggle(isGithubUrl);
     }
 
     _onInputChange() {
