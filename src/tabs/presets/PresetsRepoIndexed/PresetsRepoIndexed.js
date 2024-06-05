@@ -1,12 +1,13 @@
 import PresetParser from "./PresetParser";
 
 export default class PresetsRepoIndexed {
-    constructor(urlRaw, urlViewOnline, official, name) {
+    constructor(urlRaw, urlViewOnline, official, name, authToken = "") {
         this._urlRaw = urlRaw;
         this._urlViewOnline = urlViewOnline;
         this._index = null;
         this._name = name;
         this._official = official;
+        this._authToken = authToken;
     }
 
     get index() {
@@ -22,7 +23,7 @@ export default class PresetsRepoIndexed {
     }
 
     loadIndex() {
-        return fetch(`${this._urlRaw}index.json`, {cache: "no-cache"})
+        return fetch(`${this._urlRaw}index.json`, {cache: "no-cache",  Authorization: `token ${this._authToken}`})
             .then(res => res.json())
             .then(out => {
                 this._index = out;

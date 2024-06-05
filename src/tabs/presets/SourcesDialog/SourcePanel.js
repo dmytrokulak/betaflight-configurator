@@ -83,6 +83,7 @@ export default class SourcePanel {
             this._domEditName.prop("disabled", true);
             this._domEditUrl.prop("disabled", true);
             this._domEditGitHubBranch.prop("disabled", true);
+            this._domEditGitHubToken.prop("disabled", true);
         }
     }
 
@@ -133,6 +134,7 @@ export default class SourcePanel {
         this._domEditName.on("input", () => this._onInputChange());
         this._domEditUrl.on("input", () => this._onInputChange());
         this._domEditGitHubBranch.on("input", () => this._onInputChange());
+        this._domEditGitHubToken.on("input", () => this._onInputChange());
     }
 
     _onPanelSelected() {
@@ -154,6 +156,7 @@ export default class SourcePanel {
         this._presetSource.name = this._domEditName.val();
         this._presetSource.url = this._domEditUrl.val();
         this._presetSource.gitHubBranch = this._domEditGitHubBranch.val();
+        this._presetSource.gitHubToken = this._domEditGitHubToken.val();
         this._setIsSaved(true);
         this._onSaveCallback?.(this);
     }
@@ -162,6 +165,7 @@ export default class SourcePanel {
         this._domEditName.val(this._presetSource.name);
         this._domEditUrl.val(this._presetSource.url);
         this._domEditGitHubBranch.val(this._presetSource.gitHubBranch);
+        this._domEditGitHubToken.val(this._presetSource.gitHubToken);
         this._checkIfGithub();
         this._setIsSaved(true);
     }
@@ -201,6 +205,7 @@ export default class SourcePanel {
         this._domEditName = this._domWrapperDiv.find(".presets_source_panel_editing_name_field");
         this._domEditUrl = this._domWrapperDiv.find(".presets_source_panel_editing_url_field");
         this._domEditGitHubBranch = this._domWrapperDiv.find(".presets_source_panel_editing_branch_field");
+        this._domEditGitHubToken = this._domWrapperDiv.find(".presets_source_panel_editing_token_field");
 
         this._domButtonSave = this._domWrapperDiv.find(".presets_source_panel_save");
         this._domButtonReset = this._domWrapperDiv.find(".presets_source_panel_reset");
@@ -208,6 +213,7 @@ export default class SourcePanel {
         this._domButtonDeactivate = this._domWrapperDiv.find(".presets_source_panel_deactivate");
         this._domButtonDelete = this._domWrapperDiv.find(".presets_source_panel_delete");
         this._domDivGithubBranch = this._domWrapperDiv.find(".presets_source_panel_editing_github_branch");
+        this._domDivGithubToken = this._domWrapperDiv.find(".presets_source_panel_editing_github_token");
         this._domDivNoEditingName = this._domWrapperDiv.find(".presets_source_panel_no_editing_name");
 
         this._domDivSelectedIndicator = this._domWrapperDiv.find(".presets_source_panel_no_editing_selected");

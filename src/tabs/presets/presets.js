@@ -337,7 +337,7 @@ presets.tryLoadPresets = function() {
 
     this.presetsRepo = presetSources.map(source => {
         if (PresetSource.isUrlGithubRepo(source.url)) {
-            return new PresetsGithubRepo(source.url, source.gitHubBranch, source.official, source.name);
+            return new PresetsGithubRepo(source.url, source.gitHubBranch, source.official, source.name, source.gitHubToken);
         } else {
             return new PresetsWebsiteRepo(source.url, source.official, source.name);
         }
